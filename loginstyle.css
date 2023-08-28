@@ -1,0 +1,259 @@
+:root {
+  --primary: #161616;
+  --secundary: #151416;
+  --03:#dbdbdb;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: url("img/white-mode_bg.jpg") no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 99;
+}
+
+.logo {
+  font-size: 2em;
+  color: var(--primary);
+  user-select: none;
+}
+
+/* navigation */
+.navigation .btnLogin-popup {
+  width: 130px;
+  height: 50px;
+  background: transparent;
+  border: 2px solid --primary;
+  outline: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1.1em;
+  color: var(--primary);
+  font-weight: 500;
+  margin-left: 40px;
+  transition: 0.5s;
+}
+
+.navigation .btnLogin-popup:hover {
+  background: var(--primary);
+  color: #fff;
+}
+
+/* box login-register start */
+.form-box {
+  position: relative;
+  width: 400px;
+  height: 440px;
+  background: transparent;
+  border: 2px solid var(--secundary);
+  border-radius: 20px;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 0 30px rgba(0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transform: scale(0);
+  transition: transform 0.5s ease, height 0.2s ease;
+}
+
+.form-box h2{
+  color: var(--secundary);
+}
+
+.form-box.active-popup {
+  transform: scale(1);
+}
+
+.form-box.active {
+  height: 520px;
+}
+
+.form-box .form-login,
+.form-register {
+  width: 100%;
+  padding: 40px;
+}
+
+.form-box .form-login {
+  transition: transform 0.18s ease;
+  transform: translateX(0);
+}
+
+.form-box.active .form-login {
+  transition: none;
+  transform: translateX(-400px);
+}
+
+.form-box .form-register {
+  position: absolute;
+  transform: none;
+  transform: translateX(400px);
+}
+
+.form-box.active .form-register {
+  transition: transform 0.18s ease;
+  transform: translateX(0);
+}
+
+.form-box .icon-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 45px;
+  height: 45px;
+  background: var(--primary);
+  font-size: 2em;
+  color: var(--03);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom-left-radius: 20px;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.form-box .form-login h2,
+.form-register h2 {
+  font-size: 2em;
+  text-align: center;
+}
+
+.form-box .form-login .input-box,
+.form-register .input-box {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  border-bottom: 2px solid var(--secundary);
+  margin: 30px 0;
+}
+
+.form-box .form-login .input-box label,
+.form-register .input-box label {
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  transform: translateY(-50%);
+  font-size: 1em;
+  color: var(--secundary);
+  font-weight: 500;
+  pointer-events: none;
+  transition: 0.5;
+}
+
+.form-box .form-login .input-box input:focus ~ label,
+.form-box .form-login .input-box input:valid ~ label {
+  top: -5px;
+}
+
+.form-box .form-register .input-box input:focus ~ label,
+.form-box .form-register .input-box input:valid ~ label {
+  top: -5px;
+}
+
+.form-box .form-login .input-box input,
+.form-register .input-box input {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 1em;
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.form-box .form-login .input-box .icon,
+.form-register .input-box .icon {
+  position: absolute;
+  right: 8px;
+  font-size: 1.2em;
+  color: var(--secundary);
+  line-height: 57px;
+}
+
+/* remember-forgot */
+.form-box .form-login .remember-forgot,
+.form-register .remember-forgot {
+  font-size: 0.9em;
+  color: var(--primary);
+  font-weight: 500;
+  margin: -15px 0 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-box .form-login .remember-forgot label input,
+.form-register .remember-forgot label input {
+  accent-color: var(--primary);
+  margin-left: 3px;
+}
+
+.form-box .form-login .remember-forgot a,
+.form-register .remember-forgot a {
+  text-decoration: none;
+  color: var(--primary);
+}
+
+.form-box .form-login .remember-forgot a:hover,
+.form-register .remember-forgot a:hover {
+  text-decoration: underline;
+}
+
+.btn {
+  width: 100%;
+  height: 45px;
+  border: none;
+  outline: none;
+  background: var(--primary);
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1em;
+  color: var(--03);
+  font-weight: 600;
+}
+
+/* login-register */
+.form-box .form-login .login-register,
+.form-register .login-register {
+  font-size: 0.9 em;
+  color: var(--primary);
+  text-align: center;
+  font-weight: 500;
+  margin: 25px 0 10px;
+}
+
+.form-box .form-login .login-register p a,
+.form-register .login-register p a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.form-box .form-login .login-register p a:hover,
+.form-register .login-register p a:hover {
+  text-decoration: underline;
+}
+
+/* box login end */
